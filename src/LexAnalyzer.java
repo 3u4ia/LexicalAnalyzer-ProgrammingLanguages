@@ -155,6 +155,7 @@ public class LexAnalyzer {
         while(index < charArrLen){
             lex();
         }
+        System.out.println("Next token is: -1 Next lexeme is EOF");
     }
 
 
