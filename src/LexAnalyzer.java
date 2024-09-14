@@ -59,7 +59,19 @@ public class LexAnalyzer {
                     }
                     nextToken = IDENT;
                     break;
-
+                case DIGIT:
+                    addChar();
+                    getChar();
+                    while (charClass == DIGIT){
+                        addChar();
+                        getChar();
+                    }
+                    nextToken = INT_LIT;
+                    break;
+                case UNKNOWN:
+                    //lookup(nextChar());
+                    getChar();
+                    addChar();
 
             }
         }
