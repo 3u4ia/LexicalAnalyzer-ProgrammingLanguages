@@ -1,0 +1,3 @@
+int something = 4;
+int nothing = 5;
+int sum = nothing + something;

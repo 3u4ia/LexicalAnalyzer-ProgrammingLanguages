@@ -1,3 +1,7 @@
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -17,8 +21,15 @@ public class Main {
     public static final int LEFT_PAREN = 25;
     public static final int RIGHT_PAREN = 26;
 
+    char nextChar;
+    int currentCharClass;
+    List<Character> charArr = new ArrayList<Character>();
 
     public static void main(String[] args) {
-
+        LexAnalyzer lexAnalyzer = new LexAnalyzer();
+        lexAnalyzer.run();
     }
+
+
+
 }
