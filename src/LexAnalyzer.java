@@ -22,6 +22,8 @@ public class LexAnalyzer {
     public static final int RIGHT_PAREN = 26;
 
     public static final int NEWLINE = 27;
+    public static final int WIERD_NEWLINE = 28;
+    public static final int SEMICOLON = 29;
 
 
     int lexLen = 0;
@@ -74,9 +76,10 @@ public class LexAnalyzer {
             case UNKNOWN:
                 lookup();
                 getChar();
-                if(nextChar != '\n') {
-                    addChar();
-                }
+
+        }
+        if(nextToken == WIERD_NEWLINE || nextToken == NEWLINE){
+            return;
         }
         System.out.println("Next token is: " + nextToken + " The next lexeme is " + lexeme);
 
@@ -113,7 +116,7 @@ public class LexAnalyzer {
     }
 
 
-    int lookup(){
+    void lookup(){
         switch(nextChar){
             case '(':
                 addChar();
@@ -145,8 +148,15 @@ public class LexAnalyzer {
                 break;
             case '\n':
                 nextToken = NEWLINE;
+                break;
+            case '\r':
+                nextToken = WIERD_NEWLINE;
+                break;
+            case ';':
+                nextToken = SEMICOLON;
+                addChar();
+                break;
         }
-        return nextToken;
     }
 
 
